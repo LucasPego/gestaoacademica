@@ -3,6 +3,10 @@
 {% block content %}
 <div class="offset-1 col-10 list-div">
     <h2>Disciplinas do Curso</h2>
+    {% if user.is_authenticated %}
+    <h3 style="color: #6aafd6"> Olá  {{ user.username }} </h3>
+    {% endif %}
+
     <table class="blueTable">
         <thead>
             <tr>
@@ -24,7 +28,7 @@
                 <td>{{listamatricula.semestre}}</td>
                 <td>{{listamatricula.status}}</td>
                 <td>{{listamatricula.disciplina.local}}</td>
-                <td> 
+                <td>
                     <a href="{{listamatricula.disciplina.local}}"><span><i class="fas fa-chalkboard-teacher" title="Entrar na aula"></i></span></a>
                     <a href="fazerMatricula/{{listamatricula.id}}"><i class="fas fa-user-graduate" title="Realizar Matricula"></i></a></td>
             </tr>
